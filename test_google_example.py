@@ -3,7 +3,7 @@
 #     File Name           :     test.py
 #     Created By          :     anon
 #     Creation Date       :     [2016-05-05 13:34]
-#     Last Modified       :     [2016-05-05 14:14]
+#     Last Modified       :     [2016-05-05 14:23]
 #     Description         :      
 #################################################################################
 
@@ -19,9 +19,12 @@ class PythonSearch(unittest.TestCase):
 
     def test_search(self):
         driver = self.driver
-        
+        #Arrange
         google = googlepage.GooglePage(driver)
+        #Act
         google.visit()
+        #Assert
+        google.verify()
 
     def tearDown(self):
         self.driver.close()
