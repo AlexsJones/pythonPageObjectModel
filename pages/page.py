@@ -22,3 +22,7 @@ class Page(object):
     def verify(self):
         for key in self.identifiers:
             self.driver.find_element(*key)
+    
+    def awaitpageload(self, time):
+        WebDriverWait(self.driver, time).until(lambda x: x.execute_script("return document.readyState") == "complete")
+
