@@ -26,3 +26,10 @@ class Page(object):
     def awaitpageload(self, time):
         WebDriverWait(self.driver, time).until(lambda x: x.execute_script("return document.readyState") == "complete")
 
+    def get_element(self, element_tuple):
+        waitexist(self.driver, element_tuple, 10)
+        return self.driver.find_element(element_tuple[0], element_tuple[1])
+
+    def get_elements(self, element_tuple):
+        waitelementsexist(self.driver, element_tuple, 10)
+        return self.driver.find_elements(element_tuple[0], element_tuple[1])
