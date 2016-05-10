@@ -11,7 +11,7 @@ e.g.
    def test_search(self):
         driver = self.driver
         #Arrange
-        google = googlepage.GooglePage(driver)
+        google = GooglePage(driver)
         #Act
         google.visit()
         #Assert
