@@ -25,7 +25,13 @@ class Page(object):
     
     def awaitpageload(self, time):
         WebDriverWait(self.driver, time).until(lambda x: x.execute_script("return document.readyState") == "complete")
+        
+    def scroll_down(self):
+        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
+    def scroll_up(self):
+        self.driver.execute_script("window.scrollTo(0, 0);")
+        
     def get_element(self, element_tuple):
         waitexist(self.driver, element_tuple, 10)
         return self.driver.find_element(element_tuple[0], element_tuple[1])
